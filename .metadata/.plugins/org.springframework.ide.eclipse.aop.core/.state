@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <aop-reference-model>
+<aop-project name="Admin"/>
+<aop-project name="Board"/>
+<aop-project name="Auth"/>
 <aop-project name="Eureka"/>
 <aop-project name="Gateway"/>
 </aop-reference-model>
