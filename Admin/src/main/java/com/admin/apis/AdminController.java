@@ -11,4 +11,10 @@ public class AdminController {
 		
 		return "Hello World";
 	}
+	
+	@GetMapping("/user")
+	public String user() {
+		
+		return "hello user";
+	}
 }

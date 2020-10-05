@@ -16,11 +16,13 @@ public class ResourceConfig extends ResourceServerConfigurerAdapter{
         //.antMatchers("/").access("#oauth2.hasScope('admin')")
        // .antMatchers("/").access("#oauth2.hasScope('admin') and #oauth2.hasScope('board') and #oauth2.hasScope('job')")
         
-        .antMatchers("/css/**").permitAll()
-        .antMatchers("/js/**").permitAll()
+//        .antMatchers("/css/**").permitAll()
+//        .antMatchers("/js/**").permitAll()
+//        .antMatchers("/login").permitAll()
+//        .antMatchers("/**").access("#oauth2.hasScope('admin') and #oauth2.hasScope('board') and #oauth2.hasScope('job')")
+
+    	.antMatchers("/**").permitAll();
         
-        .antMatchers("/login").permitAll()
-        
-        .anyRequest().authenticated();
+ //       .anyRequest().authenticated();
     }
 }

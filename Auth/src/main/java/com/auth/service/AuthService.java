@@ -30,7 +30,7 @@ public class AuthService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-    	Member user = userrepo.findBymembername(username);
+    	Member user = userrepo.findByName(username);
         if(user == null) {
             throw new UsernameNotFoundException("wrongId"); // 저장된 ID 없음
         }
@@ -42,7 +42,7 @@ public class AuthService implements UserDetailsService {
     	MemberInformation loginUser  = new MemberInformation();
 
         List<GrantedAuthority> Authoritylist = new ArrayList<>();
-        switch(user.getMemberType()) {
+        switch(user.getRole()) {
             case 0 :
                 // admin
                 Authoritylist.add(new SimpleGrantedAuthority("ADMIN"));
@@ -52,7 +52,7 @@ public class AuthService implements UserDetailsService {
             break;
         }
 
-        loginUser.setUsername(user.getMembername());
+        loginUser.setUsername(user.getName());
         loginUser.setPassword(user.getPassword());
         loginUser.setAuthorities(Authoritylist);
         

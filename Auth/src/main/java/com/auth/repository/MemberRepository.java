@@ -7,6 +7,6 @@ import com.auth.domain.Member;
 
 public interface MemberRepository extends JpaRepository<Member, Integer> {
 
-    Member findBymembername(String membername);
-
+  //  Member findMember(String membername);
+	Member findByName(String name);
 }

@@ -21,13 +21,23 @@ public class Init implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
+//    	    private int id;
+//    	    private String name;
+//    	    private String email;
+//    	    private String password;
+//    	    private int role;
+//    	    private Date date;
+//    	    private String delete;
+//    	 
         Member newUser = new Member();        
         PasswordEncoder passwordEncoder;
         passwordEncoder = PasswordEncoderFactories.createDelegatingPasswordEncoder();
-        newUser.setMembername("taes");
-        newUser.setPassword(passwordEncoder.encode("luke"));
-        newUser.setMemberType(0);
+        newUser.setName("chano");
+        newUser.setEmail("chano22@naver.com");
+        newUser.setPassword(passwordEncoder.encode("1234"));
+        newUser.setRole(0);
         newUser.setDate(new Date()); 
+        newUser.setDelete(0);
         UserDao.save(newUser);
     }
 }
