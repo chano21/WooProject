@@ -14,11 +14,15 @@ public class AuthRoutingConfig extends ResourceServerConfigurerAdapter {
 		
 		
 		http.authorizeRequests()
-		.antMatchers("/api/admin/**").access("#oauth2.hasScope('admin')")
-		.antMatchers("/api/board/**").access("#oauth2.hasScope('board')")
-		.antMatchers("/api/job/**").access("#oauth2.hasScope('job')")
+		.antMatchers("/woo/admin/**").access("#oauth2.hasScope('admin')")
+		.antMatchers("/woo/board/**").access("#oauth2.hasScope('board')")
+		.antMatchers("/woo/job/**").access("#oauth2.hasScope('job')")
 		//.antMatchers("/woo/**").access("#oauth2.hasScope('admin') and #oauth2.hasScope('board') and #oauth2.hasScope('job')")
-		.antMatchers("/woo/login").anonymous()
+	//	.antMatchers("/woo/login").anonymous()
+		.antMatchers("/woo/").anonymous()
+		.antMatchers("/css/**").anonymous()
+		.antMatchers("/js/**").anonymous()
+			
 		.anyRequest().authenticated();
 	//	super.configure(http);
 	}
